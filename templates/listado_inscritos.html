@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Inscritos{% endblock %}
+
+{% block content %}
+<h2>Listado de inscritos</h2>
+<table border="1">
+    <tr>
+        <th>Fecha</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Turno</th>
+        <th>Seminarios</th>
+    </tr>
+    {% for inscrito in inscritos %}
+    <tr>
+        <td>{{ inscrito.fecha }}</td>
+        <td>{{ inscrito.nombre }}</td>
+        <td>{{ inscrito.apellidos }}</td>
+        <td>{{ inscrito.turno }}</td>
+        <td>{{ inscrito.seminarios }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('registro_seminario') }}">Nuevo</a>
+{% endblock %}
